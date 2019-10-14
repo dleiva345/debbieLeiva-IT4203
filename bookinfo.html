@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+       
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        
+       
+        <title>Debbie Leiva</title>
+   
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/linearicons.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!--style.css-->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="assets/css/responsive.css">
+        
+    
+    </head>
+	
+	<body>
+		<section class="top-area">
+			<div class="header-area">
+				
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			        
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="index.html">Debbie<span>Leiva</span></a>
+
+			            </div>
+			         
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class="active"><a href="index.html">home</a></li>
+			                    <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="milestone1.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Milestone 1
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a href="milestone1.html">LIST OF BOOKS</a>
+										<a href="singleBook.html">SINGLE BOOK</a>
+										<a href="milestone1.html">LIST OF BOOKS 2</a>
+										<a href="milestone1.html">SINGLE BOOKS 2</a>      
+                                    </div>
+                                  </li>
+								  <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="milestone2.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Milestone 2
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a href="milestone2.html">Search Books</a>
+										<a href="singleBook.html">Bookshelf</a>
+										    
+                                    </div>
+                                  </li>
+								<li class="scroll"><a href="#works">Milestone 3</a></li>
+								<li class="scroll"><a href="#works">Milestone 4</a></li>
+			                </ul>
+			            </div>
+			        </div>
+			    </nav>
+			  
+			</div>
+
+		    <div class="clearfix"></div>
+
+		</section>
+
+        <!--books start -->
+		<section id="books" class="books" >
+			<div class="container">
+				<div class="section-header">
+					<h2>Books Info</h2>
+					<p>Always upto date with our latest News and Articles </p>
+                </div><!--/.section-header-->
+                
+				<div class="books-content">
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="single-books-item">
+								<div class="single-books-item-img">
+									<img id="cover">
+								</div>
+								<div class="single-books-item-txt">
+									<h2 id="title"><a id="webpage"></a></h2>
+								
+									<p id="category">
+										
+									</p>
+								</div>
+							</div>
+                        </div>
+                        
+						
+					
+					</div>
+				</div>
+			</div><!--/.container-->
+			
+		</section><!--/.books-->
+	
+
+
+
+
+        <script>
+            $(function(){
+                var id="Wfan6L9RGgYC"; //or get the parameter value from the URL ?id=Wfan6L9RGgYC; you can Google how to do it.
+                var service_point="https://www.googleapis.com/books/v1/volumes/"+id;
+                $.getJSON(service_point, function (json)
+                {
+                    var booksHTML="";
+                    var description=json.volumeInfo.description;
+                    var title=json.volumeInfo.title;
+                    var url=json.volumeInfo.infoLink;
+                    var cover=json.volumeInfo.imageLinks.small;
+                    
+                    $("#cover").attr("src",cover);
+                    $("#title").text(title);
+                    $("#webpage").text(url).attr("href",url);
+                    
+                    var resultHTML="";
+                    for (i in json.volumeInfo.categories)
+                    {
+                        resultHTML+=json.volumeInfo.categories[i]+"; ";
+                    }
+                    $("#books").html(resultHTML);
+                }); 
+            });
+        </script>
+	
+
+		<script src="assets/js/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootsnav.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>    
+        <!--Custom JS-->
+        <script src="assets/js/custom.js"></script>
+        
+	</body>
+	
+	
+		
+	
+</html>
