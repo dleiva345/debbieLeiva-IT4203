@@ -88,30 +88,14 @@
 			<div class="container">
 				<div class="section-header">
 					<h2>Books Info</h2>
-					<p>Always upto date with our latest News and Articles </p>
+					
                 </div><!--/.section-header-->
                 
-				<div class="books-content">
-					<div class="row">
-						<div class="col-md-4 col-sm-6">
-							<div class="single-books-item">
-								<div class="single-books-item-img">
-									<img id="cover">
-								</div>
-								<div class="single-books-item-txt">
-									<h2 id="title"><a id="webpage"></a></h2>
-								
-									<p id="category">
-										
-									</p>
-								</div>
-							</div>
-                        </div>
-                        
-						
-					
-					</div>
-				</div>
+                <h1 id="title"></h1>
+                <p><a id="webpage"></a></p>
+                <img id="cover" height=200 />
+                <p>Categories:</p>
+                <div id="category"></div>
 			</div><!--/.container-->
 			
 		</section><!--/.books-->
@@ -122,7 +106,7 @@
 
         <script>
             $(function(){
-                var id="Wfan6L9RGgYC"; //or get the parameter value from the URL ?id=Wfan6L9RGgYC; you can Google how to do it.
+                var id="Wfan6L9RGgYC";
                 var service_point="https://www.googleapis.com/books/v1/volumes/"+id;
                 $.getJSON(service_point, function (json)
                 {

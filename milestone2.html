@@ -110,12 +110,12 @@
 
 		<script>
 			$(document).ready(function(){
-			$("ul").hide();
+			
 			});
 			  $("button").click(function(){
-				$("ul").show();
+				
 				$(function(){
-					var term = document.getElementById('search').value; //or get the value from a textbox user input; you can Google how to do it.
+					var term = document.getElementById('search').value; 
 					var parameter="?q="+term+"&startIndex=0&maxResults=20"; 
 					var service_point="https://www.googleapis.com/books/v1/volumes/"+parameter;
 					$.getJSON(service_point, function (json)

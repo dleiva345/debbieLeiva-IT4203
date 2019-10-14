@@ -92,7 +92,7 @@
             </div><!--/.section-header-->
 
             <h1 id="title"></h1>
-            <h2>Bookshelf Name: <span id="shelf"></span>
+           
             </h2>
             <div id="results" style="display: flex; flex-wrap: wrap;"></div>
             
@@ -114,8 +114,6 @@
         
                 $.getJSON(service_point2, function (json2) {
         
-                    //$("#shelf").text(json.title); 
-        
                     resultHTML = "";
                     for (i in json2.items) {
                         var booktitle = json2.items[i].volumeInfo.title;
@@ -132,13 +130,7 @@
                 });
             });
         </script>
-        
-	
 
-
-	
-		
-	
 
 		<script src="assets/js/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
