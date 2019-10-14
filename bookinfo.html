@@ -83,24 +83,45 @@
 
 		</section>
 
-        <!--books start -->
-		<section id="books" class="books" >
+    
+			
+	
+
+	<!--books start -->
+	<section id="books" class="books" >
 			<div class="container">
 				<div class="section-header">
-					<h2>Books Info</h2>
+					<h2>Book Info</h2>
 					
-                </div><!--/.section-header-->
-                
-                <img id="cover"/>
-                <h1 id="title"></h1>
-                <p><a id="webpage"></a></p>
-		<p><a id="description"></a></p>
-                <p>Categories:</p>
-                <div id="category"></div>
-				
-		</div><!--/.container-->
+				</div><!--/.section-header-->
+				<div class="books-content">
+					<div class="row">
+						<div class="col-12">
+							<div class="single-books-item">
+								
+								<div class="single-books-item-img">
+									<img id="cover" alt="books image">
+								</div>
+								
+								<div class="single-books-item-txt">
+									<h1 id="title"></h1><br><br>
+					
+									<h2><a id="webpage">webpage</a></h2>
+									<p id="description">Description</p>
+									<p id="category"></p>
+									
+								</div>
+							</div>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div><!--/.container--> 
 			
 		</section><!--/.books-->
+		<!--books end -->
+	
 
         <script>
             $(function(){
@@ -116,7 +137,7 @@
                     $("#cover").attr("src", cover);
                     $("#title").text(title);
                     $("#webpage").text(url).attr("href", url);
-		    $("#description").html(description);
+		   		    $("#description").html(description);
                     
                     var resultHTML="";
                     for (i in json.volumeInfo.categories)

@@ -76,10 +76,11 @@ p {
 }
 img{
     border:none;
-    width:250x; 
-    height:190px;
+    width:300x; 
+    height:250px;
     float: left;
-    padding: 25px;
+    margin: 25px;
+   
 }
 ul{
 	padding: 0;
@@ -345,8 +346,9 @@ nav.navbar.bootsnav .navbar-toggle i{color:  #dd2727;}
 /*-------------------------------------
         10. books
 --------------------------------------*/
-.books{padding:120px 0 100px;}
+.books{padding:100px 0 100px;}
 .books-content{margin-top: 40px;}
+
 
 .single-books-item{
     margin-bottom: 100px;

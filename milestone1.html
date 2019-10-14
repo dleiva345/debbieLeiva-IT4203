@@ -82,10 +82,7 @@
 				<div class="section-header">
 						
 					<h2>List of Books</h2><br>
-					<button type="button" class="btn btn-success btn-sm">Milestone 1</button>
-						<button type="button" class="btn btn-success btn-sm">Milestone 2</button>	
-						<button type="button" class="btn btn-success btn-sm">Milestone 2</button>			 
-						<br><br><br>
+				
 					
 					<p>This returns a list of books as a search result in the JSON format </p>
 				</div><!--/.section-header-->
@@ -132,7 +129,7 @@
 
     <script>
         $.getJSON(
-            'http://it-ebooks-api.info/v1/search/modern%20web',
+            'https://it-ebooks-api.info/v1/search/modern%20web',
             function(json){
                 $.each(json.Books, function(){
                     $('<div class="col-lg-6 col-md-6">').append('<div class="single-books-item">' +
