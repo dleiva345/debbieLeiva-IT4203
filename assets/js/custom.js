@@ -83,9 +83,8 @@ function searchBooks(servicePoint)
        for (i in json.items)
        {
            booksHTML+="<img class='booklistitem' data-bookid='"+json.items[i].id+ "'";
-           var img_url = json.items[i].volumeInfo.imageLinks.smallThumbnail;
-           if (img_url !== undefined) {
-            booksHTML+="src='"+img_url+ "' height='100'>";    
+           if (json.items[i].volumeInfo.imageLinks !== undefined) {
+            booksHTML+="src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+ "' height='100'>";    
            } else {
             booksHTML+="src='" + "' height='100'>";    
            }
@@ -115,9 +114,8 @@ function googleLibraryLoad(servicePoint)
        for (i in json.items)
        {
            myBooksHTML+="<img class='booklistitem' data-bookid='"+json.items[i].id+ "'";
-           var img_url = json.items[i].volumeInfo.imageLinks.smallThumbnail;
-           if (img_url !== undefined) {
-            myBooksHTML+="src='"+img_url+ "' height='100'>";    
+           if (json.items[i].volumeInfo.imageLinks !== undefined) {
+            myBooksHTML+="src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+ "' height='100'>";    
            } else {
             myBooksHTML+="src='" + "' height='100'>";    
            }
