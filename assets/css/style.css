@@ -333,13 +333,12 @@ nav.navbar.bootsnav .navbar-toggle i{color:  #dd2727;}
     -o-transition: 0.3s linear; 
     transition: 0.3s linear;
 }
-.welcome-hero-btn:hover{/*background: #fd4043;*/background: #f43032;}
-
-.welcome-hero-btn svg {
-    width:  14px;
-    height:  auto;
+.welcome-hero-btn button{
+    color: #a5adb3
     
-}
+}   
+
+
 
 
 
