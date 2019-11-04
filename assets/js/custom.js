@@ -90,7 +90,8 @@ function searchBooks(servicePoint)
        
        $(".booklistitem").on('click', function () 
        { 	
-           getBookDetails( $(this).attr("data-bookid") ); // use "this" to refer to the current clicked element or use event target, see the next a few lines for the alternative way
+           getBookDetails( $(this).attr("data-bookid") );
+           document.getElementById('bookdetails').scrollIntoView();
        });
    })
    .fail(function (jqxhr, status, errorMessage)
