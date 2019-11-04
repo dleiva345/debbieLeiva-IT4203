@@ -91,7 +91,6 @@ function searchBooks(servicePoint)
        $(".booklistitem").on('click', function () 
        { 	
            getBookDetails( $(this).attr("data-bookid") );
-           document.getElementById('bookdetails').scrollIntoView();
        });
    })
    .fail(function (jqxhr, status, errorMessage)
@@ -145,6 +144,7 @@ function getBookDetails(bookid)
        bookHTML+="<p>"+json.volumeInfo.description+ "</p>";
        bookHTML+="<a href='https://www.googleapis.com/books/v1/volumes/"+bookid+"' target='_blank'>See this book's JSON</a>";
        $("#bookdetails").html(bookHTML);
+       document.getElementById('bookdetails').scrollIntoView({behavior: "smooth"});
     });
 }
 
