@@ -9,20 +9,8 @@ font-family: 'Roboto', sans-serif;
 ==================================== */
 
 
-/*=========== TABLE OF CONTENTS ===========
-1.  General css (Reset code)
-2.  Header-top
-3.  Top-area
-4.  Welcome-hero
-5.  List-topics
-6.  Works  
-7.  Explore
-8.  Reviews
-9.  Counter
-10. books
-11. Subscribe
-12. Footer
-==========================================*/
+
+
 
 /*-------------------------------------
 		1.General css (Reset code)
@@ -273,7 +261,7 @@ nav.navbar.bootsnav .navbar-toggle i{color:  #dd2727;}
 .welcome-hero-txt { padding-top: 155px;}
 
 .welcome-hero-txt h2 {
-    font-size: 48px;
+    font-size: 30px;
     color: #373939;
     font-weight: 900;
     font-family: 'Roboto Slab', serif;
@@ -523,4 +511,10 @@ nav.navbar.bootsnav .navbar-toggle i{color:  #dd2727;}
     0%   {bottom:0px;}
     100%  {bottom:7px;}
 }
+
+
+#bookdetails {
+    float: left;
+}
+
 /*========================Thank you=================

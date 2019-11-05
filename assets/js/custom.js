@@ -2,7 +2,7 @@ $(document).ready(function ()
 {
     $("#btnSearch").click(function ()
     {
-       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val();
+       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val();
        searchBooks(url);
     });
 });
@@ -12,7 +12,7 @@ $(document).ready(function ()
 {
     $("#pg1").click(function ()
     {
-       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=0";
+       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=0";
        searchBooks(url);
        $("#currentPage").replaceWith("Current Page: 1")
     });
@@ -23,7 +23,7 @@ $(document).ready(function ()
 {
     $("#pg2").click(function ()
     {
-       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=10";
+       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=10";
        searchBooks(url);
        $("#currentPage").replaceWith("Current Page: 2")
     });
@@ -34,7 +34,7 @@ $(document).ready(function ()
 {
     $("#pg3").click(function ()
     {
-       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=20";
+       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=20";
        searchBooks(url);
        $("#currentPage").replaceWith("Current Page: 3")
     });
@@ -45,7 +45,7 @@ $(document).ready(function ()
 {
     $("#pg4").click(function ()
     {
-       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=30";
+       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=30";
        searchBooks(url);
        $("#currentPage").replaceWith("Current Page: 4")
     });
@@ -56,7 +56,7 @@ $(document).ready(function ()
 {
     $("#pg5").click(function ()
     {
-       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=40";
+       var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=40";
        searchBooks(url);
        $("#currentPage").HTML("Current Page: 5")
     });
@@ -65,7 +65,7 @@ $(document).ready(function ()
 
 $(document).ready(function ()
 {
-    $("#mybooklist").ready(function ()
+    $("#mybookshelf").ready(function ()
     {
        var url="https://www.googleapis.com/books/v1/users/117133542904398879136/bookshelves/1001/volumes";
        googleLibraryLoad(url);
@@ -74,7 +74,7 @@ $(document).ready(function ()
    
 function searchBooks(servicePoint)
 {
-   $("#booklist").html("Searching .....");  
+   $("#bookresult").html("Searching .....");  
    
    $.getJSON(servicePoint, function (json)
    {
@@ -82,24 +82,24 @@ function searchBooks(servicePoint)
       
        for (i in json.items)
        {
-           booksHTML+="<img class='booklistitem' data-bookid='"+json.items[i].id+ "'";
+           booksHTML+="<img class='bookresultitem' data-bookid='"+json.items[i].id+ "'";
            if (json.items[i].volumeInfo.imageLinks !== undefined) {
             booksHTML+="src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+ "' height='100'>";    
            } else {
             booksHTML+="src='" + "' height='100'>";    
            }
        }
-       $("#booklist").html(booksHTML);
+       $("#bookresult").html(booksHTML);
        
        
-       $(".booklistitem").on('click', function () 
+       $(".bookresultitem").on('click', function () 
        { 	
            getBookDetails( $(this).attr("data-bookid") );
        });
    })
    .fail(function (jqxhr, status, errorMessage)
    {
-       $("#booklist").html("Status Code: " + status+"<br>Error Message: "+errorMessage);
+       $("#bookresult").html("Status Code: " + status+"<br>Error Message: "+errorMessage);
    }); 
 }
    
@@ -113,25 +113,25 @@ function googleLibraryLoad(servicePoint)
       
        for (i in json.items)
        {
-           myBooksHTML+="<img class='booklistitem' data-bookid='"+json.items[i].id+ "'";
+           myBooksHTML+="<img class='bookresultitem' data-bookid='"+json.items[i].id+ "'";
            if (json.items[i].volumeInfo.imageLinks !== undefined) {
             myBooksHTML+="src='"+json.items[i].volumeInfo.imageLinks.smallThumbnail+ "' height='100'>";    
            } else {
             myBooksHTML+="src='" + "' height='100'>";    
            }
        }
-       $("#mybooklist").html(myBooksHTML);
+       $("#mybookshelf").html(myBooksHTML);
        
        
-       $(".booklistitem").on('click', function () 
+       $(".bookresultitem").on('click', function () 
        { 	
-           getBookDetails( $(this).attr("data-bookid") ); // use "this" to refer to the current clicked element or use event target, see the next a few lines for the alternative way
+           getBookDetails( $(this).attr("data-bookid") ); 
        });
    })
         }
 function getBookDetails(bookid)
 {
-    $("#bookdetails").html("Working ...");
+    $("#bookdetails").html("Loading ...");
     
     $.getJSON("https://www.googleapis.com/books/v1/volumes/" + bookid, function (json)
     {
