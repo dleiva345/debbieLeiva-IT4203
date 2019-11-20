@@ -21,7 +21,10 @@
 		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
         
         <!--style.css-->
-        <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+		
+	
+				
         
  
 
@@ -68,11 +71,46 @@
 				
 				<div class="section-header">
 						
-					<h2>List of Books</h2><br>
-				
-					
-					<p>This returns a list of books as a search result in the JSON format </p>
+					<h2>milestone 1</h2><br>
+		
 				</div><!--/.section-header-->
+
+				<div class="container">
+				
+					            
+					<table class="table">
+					  <thead>
+						<tr>
+						  <th></th>
+						  <th></th>
+						  <th></th>
+						
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td><a href="it-ebooks-infoList.html">it-ebooks.info List</a></td>
+						  
+						  <td><a href="it-ebooks-infoList.html"><button class="btn btn-primary">Visit</button></a></td>  
+						</tr>
+						<tr>
+							<td><a href="it-ebooks-infoSingle.html">it-ebooks.info Single</a></td>
+						
+							<td><a href="it-ebooks-infoSingle.html"><button class="btn btn-primary">Visit</button></a></td>	
+						</tr>
+						<tr>
+							<td><a href="google-booksList.html">Google Books List</a></td>
+							
+							<td><a href="google-booksList.html"><button class="btn btn-primary">Visit</button></a></td>	
+						</tr>
+						<tr>
+							<td><a href="google-booksSingle.html">Google Books Single</a></td>
+							
+							<td><a href="google-booksSingle.html"><button class="btn btn-primary">Visit</button></a></td>	
+						</tr>
+					  </tbody>
+					</table>
+				  </div>
 				
 			</div><!--/.container-->
 			
@@ -83,12 +121,6 @@
 
 		
 
-			<div id="scroll-Top">
-				<div class="return-to-top">
-					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
-				</div>
-				
-			</div><!--/.scroll-Top-->
 			
         </footer><!--/.footer-->
 		<!--footer end-->
@@ -114,21 +146,7 @@
         
     </body>
 
-    <script>
-        $.getJSON(
-            'https://it-ebooks-api.info/v1/search/modern%20web',
-            function(json){
-                $.each(json.Books, function(){
-                    $('<div class="col-lg-6 col-md-6">').append('<div class="single-books-item">' +
-                    '<img src="' + this.Image +'">' + '<single-books-item-txt><h2>' + this.Title + ':<\/h2>' + '<h4>'
-                    + this.SubTitle  + '<\/h4><\/p>' + '<p><b>ID Number:<\/b>' + this.ID + '<\/p>' + 
-                    '<p><b>ISBN:<\/b>' + this.isbn + '<\/p>'+ '<p><b>Description:<\/b>' + this.Description +
-                    '<\/p>'+'<\/div>').appendTo("#books");
-                });
-            
-
-        });
-	</script>  
+  
 	
 	
 	

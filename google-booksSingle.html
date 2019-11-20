@@ -1,0 +1,185 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Debbie Leiva</title>
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+
+		
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+ 
+
+
+    </head>
+	
+	<body>
+		
+		<section class="top-area">
+			<div class="header-area">
+				
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			            
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="index.html">Google Books<span>Single</span></a>
+			            </div>
+			          
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class="active"><a href="index.html">home</a></li>
+								<li><a href="milestone1.html">Milestone 1</a></li>
+								<li><a href="milestone2.html">Milestone 2</a></li>
+								<li><a href="milestone3.html">Milestone 3</a></li>				
+			                </ul>
+			            </div>
+			        </div>
+			    </nav>
+			   
+			</div>
+		    <div class="clearfix"></div>
+
+		</section>
+	
+		
+		<!--books start -->
+		<section id="books" class="books">
+			<div class="container">
+				
+				<div class="section-header">
+						
+					<h2>Google Single Books</h2><br>
+				
+				</div><!--/.section-header-->
+				
+			</div><!--/.container-->
+			
+		</section><!--/.books-->
+		<!--books end -->
+
+		
+
+		
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
+			
+        </footer><!--/.footer-->
+		<!--footer end-->
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="assets/js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+
+        
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		     
+        <!--Custom JS-->
+        <script src="assets/js/custom.js"></script>
+        
+    </body>
+
+    <script>
+        $.getJSON('https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC', function(data) 
+			   {
+                   $('#books').html('<h2>' + data.volumeInfo.title + '</h2>');
+                   $('#books').append('<h4>&nbsp;&nbsp;&nbsp;' + data.volumeInfo.subtitle+ '</h4>' +
+                   '<img src=' + data.volumeInfo.imageLinks.thumbnail + '/>' + data.volumeInfo.description + 
+                   '<ul><li class="c">Authors: ' + data.volumeInfo.authors + '</li>' +
+				   '<li class="c"> Publisher: ' + data.volumeInfo.publisher + '</li>' +
+                   '<li class="c"> Published Date: ' + data.volumeInfo.publisedDate + '</li>' +
+				   '<li class="c"> PageCount: ' + data.volumeInfo.pageCount + '</li>' +
+				   '<li class="c"> PrintedPageCount: ' + data.volumeInfo.printedPageCount + '</li>' +
+				   '<li class="c"> PrintType: ' + data.volumeInfo.printType + '</li>' +
+				   '<li class="c"> ContentVersion: ' + data.volumeInfo.contentVersion + '</li></ul>');
+				   
+                   $('#books').append('<ul class ="a"><li><h3> Other Related Information:</h3></li>' +
+                   '<ol class="b"><li>ID: ' + data.id + '</li>' +
+                   '<li>Kind: ' + data.kind + '</li>' +
+                   '<li>Etag: ' + data.etag +          '</li>' +          
+				   '<li>Category: ' + data.volumeInfo.categories + '</li>' +
+                   '<li>AverageRating: ' + data.volumeInfo.averageRating + '</li>' +
+                   '<li>RatingCount: ' + data.volumeInfo.ratingsCount + '</li>' +
+                   '<li>MaturityRating: ' + data.volumeInfo.maturityRating + '</li>' +
+                   '<li>AllowAnonLogging: ' + data.volumeInfo.allowAnonLogging + '</li>' +
+				   '<li>Language: ' + data.volumeInfo.language + '</li>' +
+                   '<li>LayerID: ' + data.layerInfo.layers.layerId + '</li>' +
+                   '<li>VolumeAnnotationVer: ' + data.layerInfo.layers.volumeAnnotationsVersion + '</li>' +
+                   '<li>saleInfoCountry ' + data.saleInfo.country + '</li>' +
+                   '<li>Saleability: ' + data.saleInfo.saleability + '</li>' +
+                   '<li>IsEbook: ' + data.saleInfo.isEbook + '</li>' +
+				   '<li>AcessInfoCountry ' + data.accessInfo.country + '</li>' +
+                   '<li>Viewability ' + data.accessInfo.viewability + '</li>' +
+                   '<li>Embeddable ' + data.accessInfo.embeddable + '</li>' +
+                   '<li>Public Domain ' + data.accessInfo.publicDomain + '</li>' +
+                   '<li>Text to Speech ' + data.accessInfo.textToSpeechPermission + '</li>' +
+                   '<li>EBUP: ' + data.accessInfo.epub.isAvailable + '</li>' +
+                   '<li>PDF: ' + data.accessInfo.pdf.isAvailable + '</li>' +        
+                   '<li>Access View Status ' + data.accessInfo.accessViewStatus +'</li>' +
+                   '<li>Quote Sharing Allowed: ' + data.accessInfo.quoteSharingAllowed + '</li></ol></ul>');
+				   
+				   $('#books').append('<h4>More Information: </h4>' + 
+				   '<ul class ="a"><li>Industry:</li>' + 
+                   '<ol class ="b"><li> Identification Type 1: ' + data.volumeInfo.industryIdentifiers[0].type + '</li>' +
+                   '<li> ISBN: ' + data.volumeInfo.industryIdentifiers[0].indentifier + '</li>' +
+                   '<li> Identification Type 2: ' + data.volumeInfo.industryIdentifiers[1].type + '</li>' +
+                   '<li> ISBN: ' + data.volumeInfo.industryIdentifiers[1].indentifier + '</li></ol>' +
+				   '<li>Reading Mode:</li>' +
+                   '<ol class ="b"><li> Text: ' + data.volumeInfo.readingModes.text + '</li>'+
+                   '<li> Image: ' + data.volumeInfo.readingModes.image + '</li></ol>'+   
+				   '<li>Dimensions:</li>' +
+                   '<ol class ="b"><li> Height: ' + data.volumeInfo.dimensions.height + '</li>'+
+                   '<li> Width: ' + data.volumeInfo.dimensions.width + '</li>'+
+                   '<li> Thick: ' + data.volumeInfo.dimensions.thickness + '</li></ol>' + 
+				   '<li>Additional Links:</li>' +
+				   '<ol class ="b"><li><a href="' + data.volumeInfo.imageLinks.smallThumbnail+ '">SmallThumbNail</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.small+ '">SmallImage</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.medium+ '">MediumImage</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.large+ '">LargeImage</a></li>' +
+                   '<li><a href="' + data.volumeInfo.imageLinks.extraLarge+ '">SmallThumbNail</a></li>' + 
+				   '<li><a href="' + data.volumeInfo.previewLink+ '">PreviewLink</a></li>' +
+				   '<li><a href="' + data.selfLink+ '">SelfLink</a></li>' +   
+                   '<li><a href="' + data.volumeInfo.infoLink + '">InfoLink</a></li>' +
+                   '<li><a href="' + data.volumeInfo.webReaderLink + '">Web Reader Link</a></li>' +
+                   '<li><a href="' + data.volumeInfo.canonicalVolumeLink + '">CanonicalVolLink</a></li>' +
+                   '<li><a href="' + data.volumeInfo.canonicalVolumeLink + '">CanonicalVolumeLink</a></li>' + 
+				   '<li><a href="' + data.saleInfo.buyLink + '">Buy Link</a></ol></ul>');
+               });				
+	</script>  
+	
+	
+	
+</html>	
