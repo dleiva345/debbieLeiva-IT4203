@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
      
-        <title>milestone 4</title>
+        <title>Milestone 4</title>
    
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/linearicons.css">
@@ -40,7 +40,7 @@
             <div class='subtitle'><h2>{{#volumeInfo}}{{subtitle}}{{/volumeInfo}}</h2></div>
             <h3 class='author'>Author: {{#volumeInfo}}{{authors}}{{/volumeInfo}}</h3></div>
             <img class='image' src='{{#volumeInfo}}{{#imageLinks}}{{thumbnail}}{{/imageLinks}}{{/volumeInfo}}'/>
-            <div class='description'><b>Description:</b> {{#volumeInfo}}{{description}}{{/volumeInfo}}</div>
+            <div class='description'><b>Description:</b> {{#volumeInfo}}{{(description}}}{{/volumeInfo}}</div>
             <div class='description'><b>Published Date:</b> {{#volumeInfo}}{{publishedDate}}{{/volumeInfo}}</div>
             <div class='description'><b>Pages:</b> {{#volumeInfo}}{{pageCount}}{{/volumeInfo}}</div>
             <div class='description'><b>Genres:</b> {{#volumeInfo}}{{categories}}{{/volumeInfo}}</div>
@@ -148,8 +148,10 @@
             {
                 display: flex; 
                 flex-wrap: wrap;
-                
                 width: 37vw;
+               
+	            width: 20%;
+            	margin: 25px;
             }
                 
             #box2
@@ -163,20 +165,13 @@
             .boxitem
             {
                 border-radius: 1px;
-                
-            /*
-                border: white;
-                background-color: white;
-            */
+                border: thin solid gray;
                 width: 99%;
-                margin: 0.3%;
+                margin: 20px;
                 height:80px;
-                padding: 20px;
+                padding: 25px;
             }
-            .listView
-            {
-            margin-top: 160px;
-            }
+            
                 
             .boxitem2
             {
@@ -204,7 +199,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 position: fixed;
-                top: 0px;
+                top: 100px;
                 right: 0px;
                 overflow:auto;
                 width:60vw;
@@ -318,7 +313,7 @@
                         </div><br><br>
                     
                         <div class="section-bookDetails">
-                            <h2 class="section-header">Book Details</h2>
+                            <h2 class="section-header"></h2>
                             <div id="bookdetails"></div>
                         </div>
                                         
@@ -357,13 +352,13 @@
             });        
             </script>
             
-                //Searching
+              
                 <script type="text/javascript">
                  $(document).ready(function ()
                  {
                      $("#btnSearch").click(function ()
                      {
-                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=0";
+                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=0";
                         searchBooks(url);
                      });
                  });
@@ -372,7 +367,7 @@
                  {
                      $("#PG1").click(function ()
                      {
-                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=0";
+                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=0";
                         searchBooks(url);
                      });
                  });    
@@ -381,7 +376,7 @@
                  {
                      $("#PG2").click(function ()
                      {
-                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=10";
+                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=10";
                         searchBooks(url);
                      });
                  });
@@ -390,7 +385,7 @@
                  {
                      $("#PG3").click(function ()
                      {
-                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=20";
+                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=20";
                         searchBooks(url);
                      });
                  });
@@ -399,7 +394,7 @@
                  {
                      $("#PG4").click(function ()
                      {
-                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=30";
+                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=30";
                         searchBooks(url);
                      });
                  });
@@ -408,7 +403,7 @@
                  {
                      $("#PG5").click(function ()
                      {
-                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchTerm").val() + "&startIndex=40";
+                        var url="https://www.googleapis.com/books/v1/volumes?q=" + $("#searchWord").val() + "&startIndex=40";
                         searchBooks(url);
                      });
                  });
@@ -421,7 +416,6 @@
                      $.getJSON(servicePoint, function (jsonData)
                      {
                         $("#box").html("");
-                        /*$("#bookdetails").html("Select a book to display details here ... ");*/
                         var template = $('#booklisttemplate').html();
                         var html = Mustache.render(template, jsonData);
                         $("#box").html(html);
@@ -435,7 +429,7 @@
                  }
                  function getBookDetails(bookid)
                  {
-                     $("#bookdetails").html("Working ..."+"<img style='content-align:center; margin:10px;' src='http://vignette1.wikia.nocookie.net/wikiality/images/7/70/ProgressBar.gif/revision/latest?cb=20070406024457'>");
+                     $("#bookdetails").html("Searching...");
                      
                      $.getJSON("https://www.googleapis.com/books/v1/volumes/" + bookid, function (jsonData)
                      {
