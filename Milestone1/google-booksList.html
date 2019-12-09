@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Debbie Leiva</title>
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+
+		
+		
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		
+		<!-- bootsnav -->
+		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="assets/css/style.css">
+        
+ 
+
+
+    </head>
+	
+	<body>
+		
+		<section class="top-area">
+			<div class="header-area">
+				
+			    <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy"  data-minus-value-desktop="70" data-minus-value-mobile="55" data-speed="1000">
+
+			        <div class="container">
+
+			            
+			            <div class="navbar-header">
+			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+			                    <i class="fa fa-bars"></i>
+			                </button>
+			                <a class="navbar-brand" href="index.html">Google Books<span>List</span></a>
+			            </div>
+			          
+			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+			                    <li class="active"><a href="index.html">home</a></li>
+								<li><a href="milestone1.html">Milestone 1</a></li>
+								<li><a href="milestone2.html">Milestone 2</a></li>
+								<li><a href="milestone3.html">Milestone 3</a></li>
+								<li><a href="milestone4.html">Milestone 4</a></li>				
+			                </ul>
+			            </div>
+			        </div>
+			    </nav>
+			   
+			</div>
+		    <div class="clearfix"></div>
+
+		</section>
+	
+		
+		<!--books start -->
+		<section id="books" class="books">
+			<div class="container">
+				
+				<div class="section-header">
+						
+					<h2>Google List of Books</h2><br>
+				
+				</div><!--/.section-header-->
+				
+			</div><!--/.container-->
+			
+		</section><!--/.books-->
+		<!--books end -->
+
+		
+
+		
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
+			
+        </footer><!--/.footer-->
+		<!--footer end-->
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="assets/js/jquery.js"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+
+        
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		     
+        <!--Custom JS-->
+        <script src="assets/js/custom.js"></script>
+        
+    </body>
+
+    <script>
+     $.getJSON('https://www.googleapis.com/books/v1/volumes?q=modern%20web', function(data) {
+                   var data_from_file=""; 
+                    for (i in data.items)
+                        {
+                              data_from_file+=
+                              '<h2>'+ data.items[i].volumeInfo.title + '</h2>' + 
+							  '<h3>' + data.items[i].volumeInfo.subtitle + '</h3>' + 
+							  '<br/><img class="image" src="' + data.items[i].volumeInfo.imageLinks.thumbnail + '"/>' + 
+							  '<br/><b><u> Description: </u></b>' + data.items[i].volumeInfo.description + 
+							  '<br/><b><u> Authors: </u></b>' + data.items[i].volumeInfo.authors + 
+							  '<br/><b><u> Published Date: </u></b>' + data.items[i].volumeInfo.publishedDate + 
+							  '<br/><b><u> Page Count: </u></b>' + data.items[i].volumeInfo.pageCount + 
+							  '<br/><a href="' + data.items[i].selfLink + '">Self Link</a>' + 
+							  '<h3> Other Related Information:</h3>' +							  
+							  '<ul class ="a"><br/><li>Industry:</li>' +
+							  '<ol class ="b"><li> Identifier Type 1: '+data.items[i].volumeInfo.industryIdentifiers[0].type + '</li>' +
+							  '<li> Identifier 1: '+data.items[i].volumeInfo.industryIdentifiers[0].identifier+ '</li>' +
+							  '<li> Identifier Type 2: '+ data.items[i].volumeInfo.industryIdentifiers[1].type + '</li>' +
+							  '<li> Identifier 2: ' + data.items[i].volumeInfo.industryIdentifiers[1].identifier+ '</li></ol>' +
+							  '<li>Reading Mode:</li>' +
+							  '<ol class ="b"><li> Text: ' + data.items[i].volumeInfo.readingModes.text + '</li>' +
+							  '<li> Image: ' + data.items[i].volumeInfo.readingModes.image + '</li></ol>' +							  
+							  '<br/><li> Related Links </li>' +
+							  '<ol class="b"><li><a class="paragraphs" href="' + data.items[i].volumeInfo.previewLink + 
+							  '">Preview Link</a></li><li>' + 
+							  '<a class="paragraphs" href="' + data.items[i].volumeInfo.infoLink + '">Info Link</a></li><li>' + 
+							  '<a class="paragraphs" href="' + data.items[i].volumeInfo.canonicalVolumeLink + 
+							  '">Canonical Volume Link</a></li></ol>' + 
+							  '<li>Sales Info:</li>' +
+							  '<ol class ="b"><li> Country: ' + data.items[i].saleInfo.country + '</li>' +
+							  '<li> Saleability: ' + data.items[i].saleInfo.saleability + '</li>' +
+							  '<li> Ebook?: ' + data.items[i].saleInfo.isEbook + '</li></ol>' +
+							  '<li>Access Info:</li>' +
+							  '<ol class ="b"><li> Access Info Country: ' + data.items[i].accessInfo.country + '</li>' +
+							  '<li>Viewability: ' + data.items[i].accessInfo.viewability + '</li>' +
+							  '<li> Is it Embeddable: ' + data.items[i].accessInfo.embeddable + '</li>' +
+							  '<li> Publid Domain: ' + data.items[i].accessInfo.publicDomain + '</li>' +
+							  '<li> Text to Speech: '+ data.items[i].accessInfo.textToSpeechPermission + '</li>' +
+							  '<li> Is EPUB Available: ' + data.items[i].accessInfo.epub.isAvailable + '</li>' +
+							  '<li> Is PDF Available: ' + data.items[i].accessInfo.pdf.isAvailable + '</li>' +
+							  '<li><a class="paragraphs" href="' + data.items[i].accessInfo.webReaderLink + '">Web Reader Link</a></li>' + 
+							  '<li> Access View Status: ' + data.items[i].accessInfo.accessViewStatus + '</li>' +
+							  '<li> Quote Sharing Allowed: ' + data.items[i].accessInfo.quoteSharingAllowed + '</li></ol>' +
+							  '<li> More Information </li>' +
+							  '<ol class="b"><li> Kind: ' + data.items[i].kind + '</li>' +
+							  '<li> ID: ' + data.items[i].id + '</li>' +
+							  '<li> ETAG: ' + data.items[i].etag + '</li>' +
+							  '<li> Print Type: ' + data.items[i].volumeInfo.printType + '</li>' +
+							  '<li> Average Rating: ' + data.items[i].volumeInfo.averageRating + '</li>' +
+							  '<li> Ratings Count: ' + data.items[i].volumeInfo.ratingsCount + '</li>' +
+							  '<li> Maturity Rating: ' + data.items[i].volumeInfo.maturityRating + '</li>' +
+							  '<li> Allow Anon Logging: ' + data.items[i].volumeInfo.allowAnonLogging + '</li>' +
+							  '<li> Content Version: ' + data.items[i].volumeInfo.contentVersion + '</li>' +							  
+							  '<li> Language: ' + data.items[i].volumeInfo.language + '</li></ol></ul>' + 
+							  '</p>';
+                        }
+                    $("#books").html(data_from_file);
+                 });
+	</script>  
+	
+	
+	
+</html>	

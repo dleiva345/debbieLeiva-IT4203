@@ -69,8 +69,7 @@
 				
 				<div class="section-header">
 						
-					<h2>It-Ebooks List of Books</h2><br>
-					<p>May take a couple of seconds to load or refresh the page ...</p><br>
+					<h2>It-Ebooks Single</h2><br>
 				
 				</div><!--/.section-header-->
 				
@@ -79,7 +78,16 @@
 		</section><!--/.books-->
 		<!--books end -->
 
+		
 
+		
+
+			<div id="scroll-Top">
+				<div class="return-to-top">
+					<i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+				</div>
+				
+			</div><!--/.scroll-Top-->
 			
         </footer><!--/.footer-->
 		<!--footer end-->
@@ -106,19 +114,34 @@
     </body>
 
     <script>
-        $.getJSON(
-            'https://it-ebooks-api.info/v1/search/modern%20web',
-            function(json){
-                $.each(json.Books, function(){
-                    $('<div class="col-md-12">').append('<div class="single-books-item">' +
-                    '<img src="' + this.Image +'">' + '<single-books-item-txt><h2>' + this.Title + ':<\/h2>' + '<h4>'
-                    + this.SubTitle  + '<\/h4><\/p>' + '<p><b>ID Number:<\/b>' + this.ID + '<\/p>' + 
-                    '<p><b>ISBN:<\/b>' + this.isbn + '<\/p>'+ '<p><b>Description:<\/b>' + this.Description +
-                    '<\/p>'+'<\/div>').appendTo("#books");
-                });
-            
+        $(function() {
+				var json = {
+					"Error": "0",
+					"Time": 0.0223,
+					"ID": 1425607065,
+					"Title": "PHP Web Services",
+					"SubTitle": "APIs for the Modern Web",
+					"Description": "Whether you’re sharing data between two internal systems or building an API so users can access their data, this practical book provides everything you need to build web service APIs with PHP. Author Lorna Jane Mitchell uses code samples, real-world examples, and advice based on her extensive experience to guide you through the process—from the underlying theory to methods for making your service robust. <br/> PHP is ideally suited for both consuming and creating web services. You’ll learn how to use this language with JSON, XML, and other web service technologies. <ol><li>Explore HTTP, from the request/response cycle to its verbs, headers, and cookies</li><li> Determine whether JSON or XML is the best data format for your application </li><li>Get practical advice for working with RPC, SOAP, and RESTful services</li><li>Use a variety of tools and techniques for debugging HTTP web services</li><li> Choose the service that works best for your application, and learn how to make it robust</li><li> Learn how to document your API—and how to design it to handle errors</li></ol>",
+					"Author": "Lorna Jane Mitchell",
+					"ISBN": "9781449356569",
+					"Year": "2013",
+					"Page": "264",
+					"Publisher": "O'Reilly Media; 1 edition",
+					"Image": "http://s.it-ebooks-api.info/3/php_web_services.jpg",
+					"Link": "http://www.oreilly.com/catalog/errata.csp?isbn=9781449356569"
+				}
+				
+                var single_book = "<img src='" + json.Image + "'><h2><b>" + 
+                    json.Title + ":</h2><h4><em>" + json.SubTitle + "</em></h4></b><b>Author: </b>" + 
+                    json.Author + "<br/><b>Publisher: </b>" + json.Publisher + "<br/><b>Published Year: </b>" + 
+                    json.Year + ";<br/><b>Number of Pages: </b>" + json.Page + "<br/><b>Book ID: </b>" + 
+                    json.ID + "<br/><b>ISBN: </b>" + json.ISBN + "<br/><br/><b>&nbsp;Description: </b><em>" + 
+                    json.Description + "</em></div><p><b>Puchase Link: </b>&nbsp;&nbsp;<a href='" + json.Link + "'>" + 
+                    json.Link + "</a></p>";
 
-        });
+				$("#books").append(single_book);
+			})
+		
 	</script>  
 	
 	
